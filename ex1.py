@@ -6,7 +6,9 @@ def ex1():
     age = int(raw_input("What is your age? "))
     # obtain an object which contains all time details. these
     # are accessible by now.year, now.month, now.hour, now.day etc
+    # **************************
     now = datetime.datetime.now()
+    # **************************
     answer = now.year + (100-age)
     message = "Hi " + name + ", you will be 100 years old in the year " + str(answer)
     print message
