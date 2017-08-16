@@ -1,3 +1,5 @@
+# Print different messages depending on even/odd input
+# number. Check if one number is divisor of another
 def ex2():
     number = int(raw_input("Please enter a number: "))
 

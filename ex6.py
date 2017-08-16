@@ -1,3 +1,5 @@
+# Check whether the input string
+# is a palindrome or not
 def ex6():
     user_input = raw_input("Please enter a word: ")
     palindrome = True

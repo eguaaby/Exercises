@@ -1,3 +1,5 @@
+# Print a list of divisors
+# of the input number
 def ex4():
     divisors = []
     number = int(raw_input("Please enter a number: "))

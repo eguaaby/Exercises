@@ -1,3 +1,5 @@
+# Tell year when the user will turn 100
+# years old after getting their age
 import datetime
 import sys
 

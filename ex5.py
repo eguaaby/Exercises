@@ -1,3 +1,5 @@
+# Return a list of common
+# elements from two input lists
 from random import *
 
 def ex5():

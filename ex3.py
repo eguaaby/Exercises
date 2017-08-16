@@ -1,3 +1,5 @@
+# Make a list of numbers from existing list
+# where every number is smaller than x
 def ex3():
     a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
     for element in a:
