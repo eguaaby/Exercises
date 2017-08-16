@@ -1,7 +1,8 @@
 def ex4():
     divisors = []
     number = int(raw_input("Please enter a number: "))
-    for i in range(1, number/2 + 1):
+    divisors.append(1)
+    for i in range(2, number/2 + 1):
         if number % i == 0:
             # i divides 'number' without
             # any remainder. therefore
