@@ -5,15 +5,14 @@ def ex8():
     player1_score = 0
     player2_score = 0
 
-    # different messages
-    player1_winMessage = "Player 1 wins!"
-    player2_winMessage = "Player 2 wins!"
-    tie_message = "It's a tie!"
     quit_message = "Thanks for playing!"
 
-    # dictionaries
-    outcomeDictionary = {1:[player1_winMessage, player1_score], -1:[player2_winMessage, player2_score], 0:[tie_message, 0]}
-    print outcomeDictionary
+    # dictionary storing players' info
+    playersDictionary = {
+        'P1':{'message': "Player 1 wins!", 'score': 0},
+        'P2':{'message': "Player 2 wins!", 'score': 0},
+        'NA':{'message': "It's a tie!", 'score': 0}
+    }
 
     # bool condition to play game
     playMore = True
@@ -25,7 +24,7 @@ def ex8():
         # if either of the players enters 'quit',
         # we display the score and exit the game
         if player1_move == "quit" or player2_move == "quit":
-            print "The score was: ", player1_score, "-", player2_score
+            print "The score was: ", playersDictionary['P1']['score'], "-", playersDictionary['P2']['score']
             print quit_message
             break
 
@@ -34,30 +33,25 @@ def ex8():
 
         # the matrix is designed like this -
         #   P1\P2     Rock    Paper   Scissors
-        #   Rock       0        -1       1
-        #   Paper      1         0      -1
-        #   Scissors  -1         1       0
+        #   Rock       NA         P2      P1
+        #   Paper      P1         NA      P2
+        #   Scissors   P2         P1      NA
         #
         # The result is 1 if player1 wins and
         # -1 if player2 wins. It's 0 for a tie
-        matrix = [[0, -1, 1], [1, 0, -1], [-1, 1, 0]]
+        matrix = [['NA', 'P2', 'P1'], ['P1', 'NA', 'P2'], ['P2', 'P1', 'NA']]
 
         # index into the matrix and get the outcome
         outcome = matrix[player1_move_index][player2_move_index]
-        if outcome == 1:
-            print player1_winMessage
-            player1_score += 1
-        elif outcome == -1:
-            print player2_winMessage
-            player2_score += 1
-        else:
-            print tie_message
+        winner=playersDictionary[outcome]
+        print winner['message']
+        winner['score'] += 1
 
         moreGames = raw_input("\nDo you want to start a new game? ")
         if moreGames == "yes":
             playMore = True
         elif moreGames == "no":
-            print "The score was: ", player1_score, "-", player2_score
+            print "The score was: ", playersDictionary['P1']['score'], "-", playersDictionary['P2']['score']
             print quit_message
             playMore = False
 
