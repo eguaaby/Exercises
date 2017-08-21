@@ -4,7 +4,7 @@
 import random
 import string
 
-def generateRandomPassword(charsChosen, size):
+def generateRandomPassword(charsChosen, size = 8):
     listOfChars = random.sample(charsChosen, size)
     pwd = ''.join(listOfChars)
     print pwd
